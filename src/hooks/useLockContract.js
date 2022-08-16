@@ -12,7 +12,9 @@ useEffect(()=> {
 
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
-    const _contract = new ethers.Contract(LOCK_ADDRESS, LOCK_ABI, provider);
+    const signer = provider.getSigner();
+
+    const _contract = new ethers.Contract(LOCK_ADDRESS, LOCK_ABI, signer);
 
     setContract(_contract);
 
